@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Runner - Download Now!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .game-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .download-section {
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, #ff6b6b, #ff3838);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 8px 25px rgba(255, 56, 56, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(255, 56, 56, 0.6);
+        }
+
+        .game-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .screenshot {
+            width: 100%;
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .game-title {
+                font-size: 2.5rem;
+            }
+            
+            .download-btn {
+                font-size: 1.4rem;
+                padding: 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="game-title">METRO RUNNER</h1>
+        <p>Experience the Ultimate Subway Adventure!</p>
+    </header>
+
+    <div class="container">
+        <section class="download-section">
+    <h2>Ready to Play?</h2>
+    <p>Download now and start your endless running journey!</p>
+    <a href="https://github.com/AmjadBalls/SnakeGame/raw/refs/heads/main/MetroRunner.rar" class="download-btn" download>
+        DOWNLOAD NOW 🚇
+    </a>
+    <p class="file-size">(Windows/Mac/Linux - 17MB)</p>
+</section>
+
+        <section class="game-info">
+            <div class="info-card">
+                <h3>⚡ Features</h3>
+                <ul>
+                    <li>Endless subway running</li>
+                    <li>Power-ups & Boosters</li>
+                    <li>Dynamic obstacles</li>
+                    <li>Leaderboard system</li>
+                    <li>Stunning 3D graphics</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>🎮 How to Play</h3>
+                <ul>
+                    <li>SPACE to jump</li>
+                    <li>Arrow keys to move</li>
+                    <li>Collect coins for boosts</li>
+                    <li>Avoid obstacles</li>
+                    <li>Beat your high score!</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>🖥 System Requirements</h3>
+                <ul>
+                    <li>Windows 10/11, macOS, Linux</li>
+                    <li>Python 3.6+ installed</li>
+                    <li>2GB RAM</li>
+                    <li>500MB Storage</li>
+                    <li>OpenGL 3.3+</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Metro Runner. All rights reserved.</p>
+        <p>Created with ❤️ by [System]</p>
+    </footer>
+</body>
+</html>
