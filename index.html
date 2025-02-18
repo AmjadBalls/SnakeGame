@@ -3,158 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metro Runner - Download Now!</title>
+    <title>Metro Runner | Download Now</title>
+    <meta name="description" content="Experience the ultimate subway running adventure! Download Metro Runner now for free!">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #FF4D4D;
+            --secondary: #1e1e1e;
+            --accent: #00CFC8;
+            --text-light: #f0f0f0;
+            --card-bg: rgba(255,255,255,0.05);
+            --card-shadow: rgba(0, 0, 0, 0.3);
+            --hero-bg-overlay: rgba(0, 0, 0, 0.6);
+            --section-bg: #1a1a1a;
+            --footer-bg: #151515;
+            --font-family-title: 'Poppins', sans-serif;
+            --font-family-body: 'Roboto', sans-serif;
+            --how-to-play-controls: var(--accent);
+            --how-to-play-objectives: var(--primary);
+            --how-to-play-tips: #f8c24b;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+            font-family: var(--font-family-body);
+            scroll-behavior: smooth;
         }
 
         body {
-            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-            color: white;
-            line-height: 1.6;
+            background: var(--secondary);
+            color: var(--text-light);
+            overflow-x: hidden;
         }
 
-        .header {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 2rem;
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: url('hero-background.jpg') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            padding: 0 20px;
+            z-index: 1;
         }
 
-        .game-title {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--hero-bg-overlay);
+            z-index: -1;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200vw;
+            height: 200vw;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: pulse 8s infinite;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -2;
         }
 
-        .download-section {
-            text-align: center;
-            margin: 4rem 0;
+        .game-logo {
+            font-family: var(--font-family-title);
+            font-size: 5rem;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 40px rgba(255,77,77,0.8);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1.5s ease-out 0.2s;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            z-index: 2;
+            animation: fadeInUp 1.8s ease-out 0.4s;
+        }
+
+        .download-btn, .play-now-btn {
+            position: relative;
+            padding: 1.6rem 3.8rem;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 2;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            box-shadow: 0 7px 20px var(--card-shadow);
+            font-weight: 600;
         }
 
         .download-btn {
-            display: inline-block;
-            padding: 1.5rem 3rem;
-            font-size: 1.8rem;
-            background: linear-gradient(45deg, #ff6b6b, #ff3838);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 8px 25px rgba(255, 56, 56, 0.4);
-            border: none;
-            cursor: pointer;
+            background: var(--accent);
+            color: var(--secondary);
+        }
+
+        .play-now-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            border: 2px solid var(--accent);
+        }
+
+        .download-btn i {
+            margin-right: 0.7rem;
+        }
+
+        .download-btn::before, .play-now-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.6s;
+        }
+
+        .download-btn:hover::before, .play-now-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover, .play-now-btn:hover {
+            transform: translateY(-7px) scale(1.07);
+            box-shadow: 0 12px 35px var(--card-shadow);
         }
 
         .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 30px rgba(255, 56, 56, 0.6);
+             box-shadow: 0 12px 35px rgba(0, 207, 200, 0.7);
+        }
+        .play-now-btn:hover {
+            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.2);
         }
 
-        .game-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
+        .features, .video-trailer, .how-to-play, .screenshots, footer {
+            padding: 7rem 2rem;
+            background: var(--section-bg);
+            position: relative;
+            overflow: hidden;
         }
 
-        .info-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+        .features::before, .video-trailer::before, .how-to-play::before, .screenshots::before, footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('subtle-texture.png');
+            opacity: 0.04;
+            z-index: -1;
         }
 
-        .screenshot {
-            width: 100%;
-            border-radius: 15px;
-            margin: 1rem 0;
-        }
-
-        footer {
-            background: rgba(0, 0, 0, 0.8);
+        .features h2, .video-trailer h2, .how-to-play h2, .screenshots h2, footer h2 {
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+            margin-bottom: 3rem;
+            font-size: 2.8rem;
+            color: var(--accent);
+            font-family: var(--font-family-title);
+            text-shadow: 0 0 20px rgba(0, 207, 200, 0.6);
         }
 
-        @media (max-width: 768px) {
-            .game-title {
-                font-size: 2.5rem;
-            }
-            
-            .download-btn {
-                font-size: 1.4rem;
-                padding: 1rem 2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header class="header">
-        <h1 class="game-title">METRO RUNNER</h1>
-        <p>Experience the Ultimate Subway Adventure!</p>
-    </header>
-
-    <div class="container">
-        <section class="download-section">
-    <h2>Ready to Play?</h2>
-    <p>Download now and start your endless running journey!</p>
-    <a href="https://github.com/AmjadBalls/SnakeGame/raw/refs/heads/main/MetroRunner.rar" class="download-btn" download>
-        DOWNLOAD NOW 🚇
-    </a>
-    <p class="file-size">(Windows/Mac/Linux - 17MB)</p>
-</section>
-
-        <section class="game-info">
-            <div class="info-card">
-                <h3>⚡ Features</h3>
-                <ul>
-                    <li>Endless subway running</li>
-                    <li>Power-ups & Boosters</li>
-                    <li>Dynamic obstacles</li>
-                    <li>Leaderboard system</li>
-                    <li>Stunning 3D graphics</li>
-                </ul>
-            </div>
-
-            <div class="info-card">
-                <h3>🎮 How to Play</h3>
-                <ul>
-                    <li>SPACE to jump</li>
-                    <li>Arrow keys to move</li>
-                    <li>Collect coins for boosts</li>
-                    <li>Avoid obstacles</li>
-                    <li>Beat your high score!</li>
-                </ul>
-            </div>
-
-            <div class="info-card">
-                <h3>🖥 System Requirements</h3>
-                <ul>
-                    <li>Windows 10/11, macOS, Linux</li>
-                    <li>Python 3.6+ installed</li>
-                    <li>2GB RAM</li>
-                    <li>500MB Storage</li>
-                    <li>OpenGL 3.3+</li>
-                </ul>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <p>© 2024 Metro Runner. All rights reserved.</p>
-        <p>Created with ❤️ by [System]</p>
-    </footer>
-</body>
-</html>
+        .features p, .video-trailer p, .how-to-play p {
+            color: var(--text-light);
+            opacity: 0.9;
+            line-height: 1.9rem;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
